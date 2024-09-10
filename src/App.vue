@@ -30,16 +30,19 @@
     object conditional movie
   </h1>
 
-  <h1
+  <h3
     v-bind:style="{
       color: highlightColor,
       'font-size': headerSize + 'px',
     }"
   >
     inline styles
-  </h1>
+  </h3>
 
   <!-- <h2 v-bind:class="new">Soldout?Movie</h2> -->
+
+  <h2 v-bind:style="headerStyleObject">style object</h2>
+  <h2 v-bind:style="[baseStyleObject, successStyleObject]">style object</h2>
 </template>
 
 <script>
@@ -63,6 +66,21 @@ export default {
       isSoldOut: true,
       highlightColor: "orange",
       headerSize: 50,
+      headerStyleObject: {
+        color: "orange",
+        padding: "20px",
+        "text-decoration": "underline",
+        // underline: "underline",
+      },
+      baseStyleObject: {
+        fontSize: "50px",
+        padding: "10px",
+      },
+      successStyleObject: {
+        color: "green",
+        backgroundColor: "lightgreen",
+        border: "1px solid green",
+      },
     };
   },
 };
