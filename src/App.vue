@@ -42,7 +42,11 @@
   <!-- <h2 v-bind:class="new">Soldout?Movie</h2> -->
 
   <h2 v-bind:style="headerStyleObject">style object</h2>
-  <h2 v-bind:style="[baseStyleObject, successStyleObject]">style object</h2>
+  <h2 v-bind:style="[baseStyleObject, successStyleObject]">
+    success style object
+  </h2>
+  <!-- shorthand -->
+  <h2 :style="[baseStyleObject, dangerStyleObject]">danger style object</h2>
 </template>
 
 <script>
@@ -80,6 +84,11 @@ export default {
         color: "green",
         backgroundColor: "lightgreen",
         border: "1px solid green",
+      },
+      dangerStyleObject: {
+        color: "darkred",
+        backgroundColor: "red",
+        border: "1px solid darkred",
       },
     };
   },
