@@ -10,7 +10,36 @@
   <h2 v-bind:class="'promoted' && isPromoted">Promoted movie</h2>
   <!-- <div v-text='name'>Hello</div> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <h2></h2>
+  <!-- CLASS EXPECTS DATA PROPERTY SO BELOW WORKS -->
+  <h2 v-bind:class="isSoldOut ? 'soldOut' : 'new'">Soldout?Movie</h2>
+
+  <h2 v-bind:class="soldOut">Newly Promoted movie</h2>
+  <h2 v-bind:class="['soldOut', isPromoted && 'promoted', 'hj']">new</h2>
+
+  <h1
+    v-bind:class="{
+      promoted: isPromoted,
+      new: !isSoldOut,
+      soldOut: isSoldOut,
+      h: '19',
+      k: '',
+      l: 0,
+      m: 1,
+    }"
+  >
+    object conditional movie
+  </h1>
+
+  <h1
+    v-bind:style="{
+      color: highlightColor,
+      'font-size': headerSize + 'px',
+    }"
+  >
+    inline styles
+  </h1>
+
+  <!-- <h2 v-bind:class="new">Soldout?Movie</h2> -->
 </template>
 
 <script>
@@ -31,7 +60,9 @@ export default {
       status: "danger",
       isPromoted: true,
       underline: "underline",
-      // isSoldOut
+      isSoldOut: true,
+      highlightColor: "orange",
+      headerSize: 50,
     };
   },
 };
@@ -55,7 +86,10 @@ export default {
 .new {
   color: olivedrab;
 }
-.sold-out {
+.soldOut {
   color: red;
 }
+/* .highlightColor {
+  color: "green";
+} */
 </style>
